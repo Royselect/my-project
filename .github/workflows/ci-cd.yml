@@ -22,7 +22,7 @@ jobs:
     - name: Run tests
       run: 
         export PYTHONPATH=$PYTHONPATH:$GITHUB_WORKSPACE
-        pytest -v
+        pytest
 
   deploy-to-test:
     needs: test
