@@ -14,18 +14,18 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: "3.9"
+        python-version: "3.12"
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
         pip install pytest
     - name: Run tests
-      run: pytest
+      run: pytest -v
 
   deploy-to-test:
     needs: test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v3
       - name: Simulate deployment to test
